@@ -18,9 +18,6 @@ import { QRCodeSVG } from "qrcode.react";
 
 import socket from "../socket";
 
-// Your laptop's local Wi-Fi IP
-const DEVICE_HOST = "192.168.1.4";
-
 function Room({ roomData, onBack, showToast }) {
   const [devices, setDevices] = useState(
     roomData?.devices || []
@@ -88,7 +85,7 @@ useEffect(() => {
   // QR / Share URL
   // -----------------------------------------------
 
-  const shareUrl = `http://${DEVICE_HOST}:5173/?room=${roomCode}`;
+const shareUrl = `${window.location.origin}/?room=${roomCode}`;
 
   // -----------------------------------------------
   // Copy room code
